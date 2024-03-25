@@ -29,13 +29,13 @@ Execute Django admin and create details for 10 books
 admin.py 
 
 from django.contrib import admin
-from .models import book_DB,book_DBAdmin
-admin.site.register(book_DB,book_DBAdmin)
+from .models import book,bookAdmin
+admin.site.register(book,bookAdmin)
 
 models.py
 from django.db import models
 from django.contrib import admin
-class book_DB(models.Model):
+class book(models.Model):
     bookno=models.IntegerField(primary_key=True);
     bookname=models.CharField(max_length=10);
     authorname=models.CharField(max_length=10);
@@ -43,7 +43,7 @@ class book_DB(models.Model):
     pages=models.IntegerField();
     price=models.IntegerField();
 
-class book_DBAdmin(admin.ModelAdmin):
+class bookAdmin(admin.ModelAdmin):
    list_display=("bookno","bookname","authorname","yearofpublishing","pages","price");
 
 
